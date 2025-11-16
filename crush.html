@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Proposal to Shraddha</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f2, #ffb3d9);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff1493;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .message {
+            font-style: italic;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        iframe {
+            max-width: 100%;
+            height: 200px;
+            border: none;
+            margin: 20px 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .yes {
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+            color: white;
+        }
+        .no {
+            background: linear-gradient(45deg, #f44336, #ef5350);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2em;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        .scrolling-lyrics {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            font-size: 1.2em;
+            color: rgba(255, 20, 147, 0.8);
+            font-style: italic;
+            white-space: nowrap;
+            animation: scrollLyrics 60s linear infinite; /* Approx. song length */
+            z-index: -1;
+        }
+        @keyframes scrollLyrics {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-200vw); } /* Extra for full lyrics */
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="scrolling-lyrics">
+        I found a love for me, darling just dive right in and follow my lead. Well I found a girl, beautiful and sweet. Oh I never knew you were the someone waiting for me. 'Cause we were just kids when we fell in love, not knowing what it was. I will not give you up this time. But darling just kiss me slow, your heart is all I own. And in your eyes you're holding mine. Baby I'm dancing in the dark with you between my arms. Barefoot on the grass listening to our favorite song. When you said you looked a mess I whispered underneath my breath but you heard it darling you look perfect tonight. Well I found a woman stronger than anyone I know. She shares my dreams, I hope that someday I'll share her home. I found a love to carry more than just my secrets. To carry love, to carry children of our own. We are still kids but we're so in love fighting against all odds. I know we'll be alright this time. Darling just hold my hand, be my girl I'll be your man. I see my future in your eyes. Baby I'm dancing in the dark with you between my arms. Barefoot on the grass listening to our favorite song. When I saw you in that dress looking so beautiful I don't deserve this darling you look perfect tonight. Baby I'm dancing in the dark with you between my arms. Barefoot on the grass listening to our favorite song. I have faith in what I see now I know I have met an angel in person and she looks perfect. I don't deserve this you look perfect tonight.
+    </div>
+    <div class="container">
+        <h1>Will You Be Mine</h1>
+        <p>Dear Shraddha,</p>
+        <p class="message">Hey Shraddha, I great you here and am working hard to achieve the things I love the most. I want to spend every single day with you, filled with joy and happiness. You've brought so much light into my life, and I can't imagine my future without you by my side. Will you be my girlfriend and make this dream come true?</p>
+        <img src="https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg" alt="Anime couple">
+        <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g&mute=1" allowfullscreen></iframe>
+        <p>What do you say?</p>
+        <button class="yes" id="yesBtn">Yes! 💕</button>
+        <button class="no" id="noBtn">No, but thanks</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Floating hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 500);
+
+        // Button interactions
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            alert('I knew it! Let\'s celebrate our love. ❤️');
+        });
+
+        // Crazy "No" button: Moves randomly on hover/click
+        const noBtn = document.getElementById('noBtn');
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('click', function() {
+            moveButton();
+            // Still allows clicking after a delay for fairness
+            setTimeout(() => alert('No worries at all! I value our friendship and hope we can stay close. 😊'), 1000);
+        });
+
+        function moveButton() {
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            let newLeft = Math.random() * (containerRect.width - btnRect.width);
+            let newTop = Math.random() * (containerRect.height - btnRect.height);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = newLeft + 'px';
+            noBtn.style.top = newTop + 'px';
+        }
+    </script>
+</body>
+</html>
