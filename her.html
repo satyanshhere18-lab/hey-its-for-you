@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Proposal to Shraddha</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9ec4, #ffd1e8);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            background: linear-gradient(45deg, #ff2e93, #ff7ac6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .message {
+            font-style: italic;
+            color: #555;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        iframe {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .yes {
+            background: linear-gradient(45deg, #4cd964, #59e37b);
+            color: white;
+        }
+
+        .no {
+            background: linear-gradient(45deg, #ff4e4e, #ff7a7a);
+            color: white;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating hearts */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            color: #ff69b4;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Scrolling lyrics */
+        .scrolling-lyrics {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            font-size: 1.1em;
+            color: rgba(255, 20, 147, 0.8);
+            font-style: italic;
+            white-space: nowrap;
+            animation: scrollLyrics 50s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes scrollLyrics {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-200vw); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="scrolling-lyrics">
+        Baby, I'm dancing in the dark... You look perfect tonight.
+    </div>
+
+    <div class="container">
+        <h1>Will You Be Mine, Shraddha? 💖</h1>
+        <p>Dear Shraddha,</p>
+        <p class="message">From the day you entered my life, everything started shining a little brighter. I’m working hard every day, and I want to build a future full of joy, love, and moments we’ll cherish forever — with you by my side. You make my world softer, better, and warmer. Will you be my girlfriend and make this journey even more beautiful?</p>
+
+        <img src="https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg" />
+
+        <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g&mute=1"></iframe>
+
+        <p style="text-align:center; font-size:1.3em; margin-top:15px;">What do you say? ❤️</p>
+
+        <div style="text-align:center;">
+            <button class="yes" id="yesBtn">Yes! 💕</button>
+            <button class="no" id="noBtn">No 😢</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 450);
+
+        // YES button
+        document.getElementById('yesBtn').addEventListener('click', () => {
+            confetti({ particleCount: 200, spread: 90, origin: { y: 0.7 } });
+            alert('She said YES! ❤️ This moment will be unforgettable.');
+        });
+
+        // NO button with alternate emotional questions
+        const noBtn = document.getElementById('noBtn');
+        let questionIndex = 0;
+        const questions = [
+            "Really? You don't love me? 😢",
+            "Are you sure?",
+            "Why... what did I do? 💔",
+            "Please tell me the reason...",
+            "Just think once more, please? 🥺"
+        ];
+
+        noBtn.addEventListener('mouseover', moveButton);
+
+        noBtn.addEventListener('click', () => {
+            if (questionIndex < questions.length) {
+                alert(questions[questionIndex]);
+                questionIndex++;
+                moveButton();
+            } else {
+                alert('It\'s okay... I still care for you ❤️');
+            }
+        });
+
+        function moveButton()() {
+            const container = document.querySelector('.container');
+            const rect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            let newLeft = Math.random() * (rect.width - btnRect.width);
+            let newTop = Math.random() * (rect.height - btnRect.height);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = newLeft + 'px';
+            noBtn.style.top = newTop + 'px';
+        }
+    </script>
+</body>
+</html>
